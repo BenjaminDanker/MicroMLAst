@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MicroMLAst.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+717b52faa0f46395b9d3bc9f103d31c49befe8d4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bd713c16ddc28648fa3e480dd3b51b9d72f91b9c")]
 [assembly: System.Reflection.AssemblyProductAttribute("MicroMLAst.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MicroMLAst.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
