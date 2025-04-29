@@ -54,9 +54,9 @@ MicroMLAst/
 
 ## Screenshot
 
-![AST Screenshot](screenshots/ast1.png)
-![AST Screenshot](screenshots/ast2.png)
-![AST Screenshot](screenshots/ast3.png)
+![AST Screenshot](screenshots/ast1.PNG)
+![AST Screenshot](screenshots/ast2.PNG)
+![AST Screenshot](screenshots/ast3.PNG)
 
 ## Contributing
 
