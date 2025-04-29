@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MicroMLAst.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bd713c16ddc28648fa3e480dd3b51b9d72f91b9c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a76d528d1ba242561bf32704ab5f830fe6e98c47")]
 [assembly: System.Reflection.AssemblyProductAttribute("MicroMLAst.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MicroMLAst.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

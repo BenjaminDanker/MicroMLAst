@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>MicroML → AST</title>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: false, theme: 'default' });
+    window.mermaid = mermaid;  // optional: expose globally if needed
+  </script>
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+  <textarea id="code" placeholder="type MicroML code here"></textarea>
+  <button id="btn">Draw AST</button>
+  <div class="mermaid" id="diagram"></div>
+  <script src="js/render.js"></script>
+</body>
+</html>

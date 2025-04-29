@@ -21,4 +21,6 @@ app.MapPost("/api/parse", (CodeDto dto, IParser parser) =>
     return Results.Json(new { mermaid });
 });
 
+app.MapFallbackToFile("index.html");
+
 app.Run();
