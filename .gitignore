@@ -2,6 +2,8 @@
 ## Build Folders (you can keep bin/, obj/ in each project)
 [Bb]in/
 [Oo]bj/
+bin/
+obj/
 
 ## Rider
 .idea/
