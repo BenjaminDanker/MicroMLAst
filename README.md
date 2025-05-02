@@ -52,7 +52,7 @@ MicroMLAst/
   Request body: `{ "code": "<MicroML code>" }`  
   Response: `{ "mermaid": "graph TD ..." }`
 
-## Screenshot
+## Screenshots
 
 ![AST Screenshot](screenshots/ast1.PNG)
 ![AST Screenshot](screenshots/ast2.PNG)

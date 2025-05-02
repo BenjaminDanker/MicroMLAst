@@ -1,18 +1,24 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <title>MicroML → AST</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
     mermaid.initialize({ startOnLoad: false, theme: 'default' });
-    window.mermaid = mermaid;  // optional: expose globally if needed
+    window.mermaid = mermaid;
   </script>
   <link rel="stylesheet" href="css/site.css" />
 </head>
 <body>
-  <textarea id="code" placeholder="type MicroML code here"></textarea>
-  <button id="btn">Draw AST</button>
-  <div class="mermaid" id="diagram"></div>
+  <div class="container">
+    <h1>MicroML → AST Visualizer</h1>
+    <label for="code">MicroML Code:</label>
+    <textarea id="code" placeholder="Type MicroML code here"></textarea>
+    <button id="btn">Draw AST</button>
+    <div class="mermaid" id="diagram"></div>
+  </div>
   <script src="js/render.js"></script>
 </body>
 </html>

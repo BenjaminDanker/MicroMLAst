@@ -1,19 +1,24 @@
 document.getElementById('btn').addEventListener('click', async () => {
   const code = document.getElementById('code').value;
-  const res  = await fetch('/api/parse', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ code })
-  });
-  const { mermaid: graphDef } = await res.json();
-
   const container = document.getElementById('diagram');
-  const graphId   = 'graph-' + Date.now();
+  container.innerHTML = '<em>Rendering AST...</em>';
 
-  // NEW: await the promise-based render
-  const { svg, bindFunctions } = await mermaid.render(graphId, graphDef);
-  
-  // inject the SVG and bind any event handlers
-  container.innerHTML = svg;
-  bindFunctions(container);
+  try {
+    const res = await fetch('/api/parse', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code })
+    });
+
+    if (!res.ok) throw new Error('Server error');
+
+    const { mermaid: graphDef } = await res.json();
+    const graphId = 'graph-' + Date.now();
+    const { svg, bindFunctions } = await mermaid.render(graphId, graphDef);
+
+    container.innerHTML = svg;
+    bindFunctions(container);
+  } catch (err) {
+    container.innerHTML = `<span style="color:#d32f2f;">Error: ${err.message}</span>`;
+  }
 });
