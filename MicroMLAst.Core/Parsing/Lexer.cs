@@ -2,30 +2,40 @@ using System.Text.RegularExpressions;
 
 namespace MicroMLAst.Core.Parsing;
 
+/// <summary>
+/// Token types for the MicroML language.
+/// </summary>
 public enum TokenType
 {
-    // keywords
+    // Keywords
     Let, In, End, If, Then, Else,
-    // symbols & operators
-    LParen, RParen, Equal, Plus, Minus, Star, Less, Assign,            // = + - * <
+    // Symbols & operators
+    LParen, RParen, Equal, Plus, Minus, Star, Less, Assign,
     Ident, IntLit, BoolLit,
     EOF
 }
 
 public record Token(TokenType Type, string Lexeme, int Pos);
 
+/// <summary>
+/// Converts source code into a sequence of tokens.
+/// </summary>
 public sealed class Lexer
 {
+    // Regex for tokenizing input.
     private static readonly Regex _rx = new
     (
-        @"(?<ws>\s+)|"                    + // ignore whitespace
-        @"(?<num>\d+)|"                   +
-        @"(?<bool>true|false)\b|"         +
-        @"(?<id>[a-zA-Z_]\w*)|"           +
-        @"(?<sym>\=\=|:=|[+\-*<()\=])",
+        @"(?<ws>\s+)|"                    + // Whitespace (ignored)
+        @"(?<num>\d+)|"                   + // Integer literals
+        @"(?<bool>true|false)\b|"         + // Boolean literals
+        @"(?<id>[a-zA-Z_]\w*)|"           + // Identifiers and keywords
+        @"(?<sym>\=\=|:=|[+\-*<()\=])",     // Symbols and operators
         RegexOptions.Compiled
     );
 
+    /// <summary>
+    /// Lex the input string into tokens.
+    /// </summary>
     public IEnumerable<Token> Lex(string src)
     {
         var pos = 0;
@@ -37,6 +47,7 @@ public sealed class Lexer
                                           { yield return Tok(TokenType.BoolLit, m.Value); }
             else if (m.Groups["id"].Success)
             {
+                // Distinguish keywords from identifiers
                 yield return Tok(m.Value switch
                 {
                     "let"  => TokenType.Let,
@@ -53,17 +64,20 @@ public sealed class Lexer
         }
         yield return new Token(TokenType.EOF, "<eof>", pos);
 
-        Token Tok(TokenType t,string v) => new(t,v,pos);
+        // Helper to create a token
+        Token Tok(TokenType t, string v) => new(t, v, pos);
+
+        // Helper to map symbol strings to token types
         Token Sym(string v) => v switch
         {
-            "(" => Tok(TokenType.LParen,v),
-            ")" => Tok(TokenType.RParen,v),
-            "+" => Tok(TokenType.Plus ,v),
-            "-" => Tok(TokenType.Minus,v),
-            "*" => Tok(TokenType.Star ,v),
-            "<" => Tok(TokenType.Less ,v),
-            "=" => Tok(TokenType.Equal,v),
-            ":="=> Tok(TokenType.Assign,v),
+            "(" => Tok(TokenType.LParen, v),
+            ")" => Tok(TokenType.RParen, v),
+            "+" => Tok(TokenType.Plus, v),
+            "-" => Tok(TokenType.Minus, v),
+            "*" => Tok(TokenType.Star, v),
+            "<" => Tok(TokenType.Less, v),
+            "=" => Tok(TokenType.Equal, v),
+            ":=" => Tok(TokenType.Assign, v),
             _   => throw new($"Unknown char {v}")
         };
     }
