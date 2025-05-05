@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroMLAst.Core", "MicroMLA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroMLAst.Web", "MicroMLAst.Web\MicroMLAst.Web.csproj", "{331485A6-EC90-40D9-9DC8-6DED99F61BCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scratch", "Scratch\Scratch.csproj", "{E6E0FCDA-BEAC-473D-9C97-074DB47CF05E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
